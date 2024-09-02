@@ -28,8 +28,10 @@ class SecondFragment : Fragment() {
         getData()
     }
 
-    private fun getData() {
-        binding.txtSecond.text = args.name
+    private fun getData() = with(binding) {
+        tvName.text = args.name.name
+        tvEmail.text = args.name.email
+        tvPassword.text = args.name.password.toString()
 
     }
 

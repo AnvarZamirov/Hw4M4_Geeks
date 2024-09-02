@@ -25,11 +25,15 @@ class MainFragment : Fragment() {
         setupListener()
     }
 
-    private fun setupListener() {
-        binding.txtMain.setOnClickListener {
+    private fun setupListener() = with(binding) {
+        binding.buttonSend.setOnClickListener {
       findNavController()
           .navigate(MainFragmentDirections.
-          actionMainFragmentToSecondFragment("Hello World"))
+          actionMainFragmentToSecondFragment(User(
+              binding.etName.text.toString(),
+              binding.etEmail.text.toString(),
+              binding.etPassword.text.toString().toInt()
+          )))
         }
     }
 }
